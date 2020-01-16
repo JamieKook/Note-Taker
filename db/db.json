@@ -34,5 +34,10 @@
   {
     "title": "POst ",
     "text": "wef"
+  },
+  {
+    "title": "This note with ID",
+    "text": "the id should be 9",
+    "id": 10
   }
 ]

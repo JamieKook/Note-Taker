@@ -17,6 +17,8 @@ module.exports = function (app) {
         fs.readFile("db/db.json", (err, data) => {
             if (err) throw err; 
             notesArr= JSON.parse(data); 
+            let currentLength= notesArr.length; 
+            newNote.id = currentLength+1; 
             notesArr.push(newNote); 
             fs.writeFile("db/db.json", JSON.stringify(notesArr,null, 2), (err) =>{
                 if (err) throw err;   
@@ -24,4 +26,8 @@ module.exports = function (app) {
         }); 
         res.json(newNote);  
     }); 
+
+    // app.delete("/api/notes/:id", function(req, res) {
+
+    // })
 }; 
