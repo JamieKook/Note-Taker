@@ -1,43 +1,17 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text"
+    "title": "1",
+    "text": "1",
+    "id": 1
   },
   {
-    "title": "Test 2",
-    "text": "test"
+    "title": "2",
+    "text": "2",
+    "id": 2
   },
   {
-    "title": "Note 3",
-    "text": "test again"
-  },
-  {
-    "title": "Another note",
-    "text": "test\n"
-  },
-  {
-    "title": "Note",
-    "text": "nt"
-  },
-  {
-    "title": "Here's one more",
-    "text": "ten"
-  },
-  {
-    "title": "Test again",
-    "text": "test"
-  },
-  {
-    "title": "Vcheck",
-    "text": "jsklef"
-  },
-  {
-    "title": "POst ",
-    "text": "wef"
-  },
-  {
-    "title": "This note with ID",
-    "text": "the id should be 9",
-    "id": 10
+    "title": "4",
+    "text": "4",
+    "id": 4
   }
 ]
