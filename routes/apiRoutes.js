@@ -1,5 +1,5 @@
 const fs = require("fs"); 
-const db = require("../db/db.json"); 
+let noteCount=1; 
 
 module.exports = function (app) {
 
@@ -17,8 +17,15 @@ module.exports = function (app) {
         fs.readFile("db/db.json", (err, data) => {
             if (err) throw err; 
             notesArr= JSON.parse(data); 
-            let currentLength= notesArr.length; 
-            newNote.id = currentLength+1; 
+            let currentId= 0; 
+            // newNote.id = currentLength+1; 
+            if (notesArr.length > 0){
+                let currentLength= notesArr.length; 
+                currentId= notesArr[currentLength-1].id;
+            } else {
+                currentId= 0; 
+            }
+            newNote.id= currentId +1; 
             notesArr.push(newNote); 
             fs.writeFile("db/db.json", JSON.stringify(notesArr,null, 2), (err) =>{
                 if (err) throw err;   
