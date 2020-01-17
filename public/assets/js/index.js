@@ -34,6 +34,7 @@ var deleteNote = function(id) {
 
 // If there is an activeNote, display it, otherwise render empty inputs
 var renderActiveNote = function() {
+  debugger; 
   $saveNoteBtn.hide();
   if (activeNote.id) {
     //changed from true to false to enable previous note editing
@@ -65,6 +66,7 @@ var handleNoteSave = function() {
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
+    activeNote={}; 
     renderActiveNote();
   });
 };

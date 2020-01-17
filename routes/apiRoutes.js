@@ -16,7 +16,6 @@ module.exports = function (app) {
         fs.readFile("db/db.json", (err, data) => {
             if (err) throw err; 
             notesArr= JSON.parse(data); 
-            console.log(notesArr); 
             let isOldNote= false; 
             //check to see if note is already saved and just being edited
             for (let i=0; i<notesArr.length; i++){
@@ -25,7 +24,6 @@ module.exports = function (app) {
                     newNote.id = parseInt(newNote.id);  
                     notesArr.splice(i, 1, newNote); 
                     isOldNote= true; 
-                    console.log(notesArr); 
                 } 
             }
 
