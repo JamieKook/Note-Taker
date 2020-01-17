@@ -40,12 +40,13 @@ module.exports = function (app) {
                 notesArr.push(newNote);
             }
           
+            res.json(newNote); 
             
             fs.writeFile("db/db.json", JSON.stringify(notesArr,null, 2), (err) =>{
-                if (err) throw err;   
+                if (err) throw err;  
             }); 
         }); 
-        res.json(newNote);  
+         
     }); 
 
     app.delete("/api/notes/:id", function(req, res) {
