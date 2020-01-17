@@ -26,7 +26,6 @@ var saveNote = function(note) {
 
 // A function for deleting a note from the db
 var deleteNote = function(id) {
-  console.log(id); 
   return $.ajax({
     url: "api/notes/" + id,
     method: "DELETE"
@@ -36,27 +35,33 @@ var deleteNote = function(id) {
 // If there is an activeNote, display it, otherwise render empty inputs
 var renderActiveNote = function() {
   $saveNoteBtn.hide();
-
   if (activeNote.id) {
-    $noteTitle.attr("readonly", true);
-    $noteText.attr("readonly", true);
+    //changed from true to false to enable previous note editing
+    $noteTitle.attr("readonly", false);
+    $noteText.attr("readonly", false);
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
+    $noteTitle.data(activeNote); 
   } else {
     $noteTitle.attr("readonly", false);
     $noteText.attr("readonly", false);
     $noteTitle.val("");
     $noteText.val("");
+    $noteTitle.data({title: "", text: "", id: ""}); 
   }
 };
 
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
-  console.log("The on-click works!"); 
-  var newNote = {
-    title: $noteTitle.val(),
-    text: $noteText.val()
-  };
+  let savedData = $noteTitle.data(); 
+  console.log(savedData); 
+  let newNote = {
+      title: $noteTitle.val(),
+      text: $noteText.val(),
+      id: savedData.id
+    };
+
+    console.log(newNote); 
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
@@ -76,7 +81,6 @@ var handleNoteDelete = function(event) {
   if (activeNote.id === note.id) {
     activeNote = {};
   }
-  debugger; 
   deleteNote(note.id).then(function() {
     getAndRenderNotes();
     renderActiveNote();
