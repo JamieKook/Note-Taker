@@ -37,9 +37,6 @@ When a post is made, the posted note is compared to stored notes to see if a new
 
 When a delete call is routed, the id of the requested note is compared to the stored notes' ids. When a match is found, the notes data is removed from the list and the editted data is saved in a rewritten db.json file. 
 
-### Code Testing
-Jest is used to ensure the functionality of the routing calls. 
-
 ## Coding
 
 *  The provided code uses html, css, javascript, jquery, ajax, and bootstrap. 
@@ -49,7 +46,7 @@ Jest is used to ensure the functionality of the routing calls.
 *   Express is used to create and set up the server.
 *   FileSystem is used to read and write the db.json file for note storage. 
 *   Path is used to determine route paths for the different files. 
-*   Jest is used for testing. 
+
 
 ## Meta 
 

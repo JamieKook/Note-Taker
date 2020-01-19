@@ -17,6 +17,7 @@ var getNotes = function() {
 
 // A function for saving a note to the db
 var saveNote = function(note) {
+  console.log(note); 
   return $.ajax({
     url: "/api/notes",
     data: note,
@@ -33,8 +34,7 @@ var deleteNote = function(id) {
 };
 
 // If there is an activeNote, display it, otherwise render empty inputs
-var renderActiveNote = function() {
-  debugger; 
+var renderActiveNote = function() { 
   $saveNoteBtn.hide();
   if (activeNote.id) {
     //changed from true to false to enable previous note editing
@@ -55,14 +55,11 @@ var renderActiveNote = function() {
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
   let savedData = $noteTitle.data(); 
-  console.log(savedData); 
   let newNote = {
       title: $noteTitle.val(),
       text: $noteText.val(),
       id: savedData.id
     };
-
-    console.log(newNote); 
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
